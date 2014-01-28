@@ -1,0 +1,44 @@
+<template name="stream">
+    <h1>stream</h1>
+    <div>
+
+        {{> notification}} 
+        {{> addItem}} 
+        {{#each items}} 
+        {{> item this}} 
+        {{else}}
+        <h2>No Items yet</h2>
+        {{/each}}
+
+    </div>
+
+</template>
+
+<template name="item">
+    <div class='item' style="{{style}}">
+        <ul>
+            <li>{{title}}</li>
+            <li>{{description}}</li>
+            <li>{{creationDate}}</li>
+            <li>{{displayedAt}}</li>
+        </ul>
+    </div>
+
+</template>
+
+<template name="notification">
+    <div>
+        Show {{queueLength}} new items
+        <button id="show">Show</button>
+    </div>
+</template>
+
+<template name="addItem">
+    <div>
+        <label for="title">Title</label>
+        <input id="title" type="text">
+        <label for="description">Description</label>
+        <input id="description" type="text">
+        <button id="add">Add</button>
+    </div>
+</template>
